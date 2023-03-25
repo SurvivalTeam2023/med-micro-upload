@@ -71,7 +71,7 @@ jobs:
           REGISTRY: ${{ secrets.REGISTRY }}
           REGISTRY_ALIAS: ${{ secrets.REGISTRY_ALIAS }}
           REPOSITORY: ${{ secrets.REPOSITORY }}
-          IMAGE_TAG: "med-micro-upload-${{ steps.format-time.outputs.replaced }}"
+          IMAGE_TAG: "med-upload-${{ steps.format-time.outputs.replaced }}"
         run: |
           docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
@@ -82,7 +82,7 @@ jobs:
           REGISTRY: ${{ secrets.REGISTRY }}
           REGISTRY_ALIAS: ${{ secrets.REGISTRY_ALIAS }}
           REPOSITORY: ${{ secrets.REPOSITORY }}
-          IMAGE_TAG: "med-micro-upload-${{ steps.format-time.outputs.replaced }}"
+          IMAGE_TAG: "med-upload-${{ steps.format-time.outputs.replaced }}"
           EKS_DEPLOYMENT: ${{ secrets.EKS_DEPLOYMENT }}
           APP_NAME: ${{ secrets.APP_NAME }}
         with:
