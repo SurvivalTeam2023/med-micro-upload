@@ -1,0 +1,8 @@
+export enum SubscriptionStatus {
+    ACTIVE = 'ACTIVE',
+    APPROVAL_PENDING = 'APPROVAL_PENDING',
+    APPROVED = 'APPROVED',
+    SUSPENDED = 'SUSPENDED',
+    CANCELLED = 'CANCELLED',
+    EXPIRED = 'EXPIRED',
+}
