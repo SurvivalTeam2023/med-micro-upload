@@ -13,7 +13,7 @@ async function bootstrap() {
   await swaggerConfig(app);
   await awsConfig();
   await app.listen(SERVER_PORT, () => {
-    console.log(`Application is running at port: ${SERVER_PORT}`);
+    console.log(`Application is running at banhsbao port: ${SERVER_PORT}`);
   });
 }
 bootstrap();
