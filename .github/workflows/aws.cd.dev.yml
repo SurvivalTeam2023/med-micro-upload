@@ -22,7 +22,7 @@ jobs:
     env:
       NODE_ENV: "development"
     name: Build and Deploy
-    steps:  
+    steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3
 
@@ -61,7 +61,7 @@ jobs:
           docker push $REPOSITORY:$IMAGE_TAG
       - name: Executing remote ssh EC2
         uses: appleboy/ssh-action@master
-        env: 
+        env:
           REPOSITORY: ${{ secrets.REPOSITORY }}
           IMAGE_TAG: "med-micro-upload-${{ steps.format-time.outputs.replaced }}"
           EKS_DEPLOYMENT: ${{ secrets.EKS_DEPLOYMENT }}
@@ -73,5 +73,5 @@ jobs:
           envs: REGISTRY, REGISTRY_ALIAS, REPOSITORY, IMAGE_TAG, EKS_DEPLOYMENT, APP_NAME
           script: |
               echo "$IMAGE_TAG"
-              kubectl set image deployment/$EKS_DEPLOYMENT $APP_NAME=$REPOSITORY:$IMAGE_TAG 
+              kubectl set image deployment/$EKS_DEPLOYMENT $APP_NAME=$REPOSITORY:$IMAGE_TAG -n dev
 
